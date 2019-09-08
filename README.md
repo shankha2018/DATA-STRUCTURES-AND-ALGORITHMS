@@ -11,6 +11,13 @@ An array is collection of items stored at contiguous memory locations.The memory
 
 3. n (n-based indexing): The base index of an array can be freely chosen. Usually programming languages allowing n-based indexing also allow negative index values and other scalar data types like enumerations, or characters may be used as an array index.
 
+# Advantages of using arrays:
+
+1. Arrays allow random access of elements. Accessing elements by position becomes faster.
+
+2. Arrays have better cache locality that can make a pretty big difference in performance.
+
+
 
 
 
