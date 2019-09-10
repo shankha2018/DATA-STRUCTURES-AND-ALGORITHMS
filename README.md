@@ -21,19 +21,19 @@ An array is collection of items stored at contiguous memory locations.The memory
 
 # Array declaration in C/C++:
 
-   1. **int n = 10; 
-      **int arr[n];
+   1. **int n = 10;** 
+      **int arr[n];**
       or
-      **int arr[10]
+      **int arr[10]**
       This is array declaration **by specifying size**.
       
-   2. **int arr[] = { 10, 20, 30, 40 } 
+   2. **int arr[] = { 10, 20, 30, 40 }**
       This is array declaration **by initializing elements**
      
 
-   3. **int arr[6] = { 10, 20, 30, 40 } 
+   3. **int arr[6] = { 10, 20, 30, 40 }** 
       or
-      **int arr[]={10,20,30,40,0,0}
+      **int arr[]={10,20,30,40,0,0}**
       This is array declaration **by specifying size and initializing  elements**
       
       
