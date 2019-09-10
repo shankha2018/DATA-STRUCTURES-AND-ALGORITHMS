@@ -48,6 +48,14 @@ An array is collection of items stored at contiguous memory locations.The memory
    **NOTE:** There is no index out of bounds checking in C/C++ie.it compiles fine but may produce unexpected output when run.
 
 
+# Array Rotation:
+
+1. A Program to rotate an array by a given no. of elements.
+
+**METHOD 1:** see **Code1: Array_Rotation(using Temporary Array).c**
+
+**METHOD 2:** see **Code2: Array_Rotation(in Same Array).c**
+
 
 
 
