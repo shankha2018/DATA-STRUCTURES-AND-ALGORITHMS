@@ -60,6 +60,13 @@ An array is collection of items stored at contiguous memory locations.The memory
 
 Linked List is a **linear** data structure. Unlike arrays, linked list elements are not stored at a contiguous location; the elements are linked using pointers.
 
+
+A linked list is represented by a pointer to the first node of the linked list. The first node is called the **head**. If the linked list is empty, then the value of the head is **NULL**.
+Each node in a list consists of at least two parts:
+1) data
+2) Pointer (Or Reference) to the next node.
+
+
 # Limitations of Arrays:
 
 1. The size of the arrays is fixed. So we need to know the upper limit on the number of elements in advance.Also generally the allocated memory is equal to the upper limit irrespective of the usage.Linked List,on the other hand, has dynamic sizes. 
@@ -74,6 +81,8 @@ Linked List is a **linear** data structure. Unlike arrays, linked list elements 
 2. Extra memory space for a pointer is required with each element of the list.
 
 3. Not cache friendly. Since array elements are contiguous locations, there is locality of reference which is not there in case of linked lists.
+
+
 
 
 
