@@ -1,8 +1,7 @@
-import java.io.BufferedReader;
-import java.io.x;
-
+import java.io.*;
 class LinkedList
 {
+    Node start;
     class Node
     {
         int item;
@@ -13,9 +12,7 @@ class LinkedList
             next=null;
         }
     }
-    Node start;
-    Node p=start;
-    public void Insert_Beginning()
+    public void Insert_Beginning() throws IOException
     {
         System.out.println("Enter Item:");
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
@@ -24,8 +21,9 @@ class LinkedList
         temp.next=start;
         start=temp;
     }
-    public void Insert_end()
+    public void Insert_end() throws IOException
     {
+        Node p=start;
         System.out.println("Enter Item:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int new_item = Integer.parseInt(br.readLine());
@@ -43,8 +41,9 @@ class LinkedList
             p.next=temp;
         }
     }
-    public void InsertAtLocation()
+    public void InsertAtLocation() throws IOException
     {
+        Node p=start;
         System.out.println("Enter Location:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -58,21 +57,95 @@ class LinkedList
             temp.next=p;
             start=temp;
         }
-        for (int i=1;i<location;i++)
+        for (int i=1;i<location-1;i++)
         {
             p=p.next;
+            if(p==null)
+			{  
+				System.out.println("NO   SUCH LOCATION");  
+				return;
+			}
+
         }
-        Node next_node=new Node(p.next.data);
+        Node next_node=new Node(p.next.item);
         p.next=temp;
         temp.next=next_node;
     }
 
-    public void InsertAfterValue()
+    public void InsertAfterValue() throws IOException
     {
+        Node p=start;
         System.out.println("Enter Value of a node:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int value = Integer.parseInt(br.readLine());
+        while(p!=null)
+	    {
+		if(p.item==value)
+		{
+			System.out.println("Enter Item:");
+            int new_item = Integer.parseInt(br.readLine());
+            Node temp = new Node(new_item); 
+			temp.next=p.next;
+			p.next=temp;
+			break;
+		}
+		else if(p.next==null && p.item!=value)
+		{
+			System.out.println("NO SUCH VALUE");
+			return;
+		}
+		p=p.next;
+	    }
+	    if (p==start && p==null)
+	    {
+            System.out.println("This Action Can Not be performed as there is no element in the linked list");
+            return;
+	    }
 
+    }
+    public void display()
+    {
+        Node p=start;
+        System.out.println(" YOUR LINKED LIST LOOKS LIKE :");
+	    System.out.print("|_HEAD");
+	    while(p!=null)
+	    {
+            System.out.print(" |_"+p.item+"_|_|->");
+		    p=p.next;
+	    }
+	    System.out.print("[NULL]\n");
+    }
+}
+
+class Insertion
+{
+    public static void main(String args[]) throws IOException
+    {
+        int choice;
+        while(true)
+        {
+            System.out.println("\n LINKED LIST: \n 1. INSERT AT THE BEGINNING\n 2. INSERT AT THE END\n 3. INSERT AT A GIVEN LOCATION\n 4. INSERT AFTER A GIVEN VALUE\n 5. DISPLAY\n 6. EXIT\n\n");
+            System.out.println("\nENTER YOUR CHOICE:\n");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            choice= Integer.parseInt(br.readLine());
+            LinkedList obj=new LinkedList();
+            switch(choice)
+            {
+                case 1:obj.Insert_Beginning();
+                    break;
+                case 2:obj.Insert_end();
+                    break;
+                case 3:obj.InsertAtLocation();
+                    break;
+                case 4:obj.InsertAfterValue();
+                    break;
+                case 5:obj.display();
+                    break;
+                case 6:System.exit(0);
+                    break;
+                default: System.out.println("\n YOU HAVE ENTERED A WRONG CHOICE\n");
+            }
+        }
     }
 }
